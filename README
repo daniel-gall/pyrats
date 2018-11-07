@@ -1,0 +1,10 @@
+PyRats is a python dependency logger descended from furius.ca's snakefood.
+
+It comes in the form of a sitecustomize.py script that you can put in your python installation's lib/pythonX.Y/site-packages/ directory.
+
+You will want to configure your log server to include a log facility for pyrats similar to the example snippet in the syslog-ng.conf file in this repo.
+
+Once that is done you will want to edit your PyRats sitecustomize.py script to point to your log server and log facility port.  This is done at line 679, shown below.  The first number, 515 is the place you change to match your log facility port.  The number 20 is the priority of the log messages emitted, but this number isn't presently used.  Instead this is hard coded to a value at line 512.
+
+
+                    gendeps(('your_log_server_fqdn',515), 20)
